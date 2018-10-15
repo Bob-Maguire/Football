@@ -3,7 +3,7 @@ from Team import *
 from game import *
 from base64 import b64encode
 
-enc = b64encode(b"95a66f9f-108a-4d17-a9cc-37709b:MYSPORTSFEEDS").decode("ascii")
+enc = b64encode(b":MYSPORTSFEEDS").decode("ascii")
 
 header = {'Authorization' : 'Basic %s' % enc}
 
