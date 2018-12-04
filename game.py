@@ -1,8 +1,7 @@
 class game:
     def __init__(self, id, week, away, home, completion, awayScore, homeScore):
         self.id = id
-        self.week = week
-
+        self.s_week = week
         self.away = away
         self.home = home
         if completion != "COMPLETED":

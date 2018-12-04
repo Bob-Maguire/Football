@@ -1,25 +1,29 @@
 from game import *
+from week import *
 
 class TeamSchedule:
     def __init__(self, team):
         self.team = team
-        self.week1 = None
-        self.week2 = None
-        self.week3 = None
-        self.week4 = None
-        self.week5 = None
-        self.week6 = None
-        self.week7 = None
-        self.week8 = None
-        self.week9 = None
-        self.week10 = None
-        self.week11 = None
-        self.week12 = None
-        self.week13 = None
-        self.week14 = None
-        self.week15 = None
-        self.week16 = None
-        self.week17 = None
+        self.weeks = {}
 
     def newGame(self, game, win):
-        if win:
+        if (win == self.team):
+            team_win = "Win"
+        elif (win == "tie"):
+            team_win = "Tie"
+        elif (win == None):
+            team_win = "Unplayed"
+        else:
+            team_win = "Loss"
+        if (game.home == self.team):
+            opp = game.away
+            score = game.homeScore
+            opp_score = game.awayScore
+            venue = "home"
+        else:
+            opp = game.home
+            score = game.awayScore
+            opp_score = game.homeScore
+            venue = "away"
+        new_week = week(game.s_week, team_win, opp, score, opp_score, venue)
+        self.weeks[game.s_week] = new_week
